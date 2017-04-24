@@ -1,0 +1,181 @@
+# Copyright (C) 2014 
+# This file is distributed under the same license as the  package.
+msgid ""
+msgstr ""
+"Project-Id-Version:  \n"
+"Report-Msgid-Bugs-To: http://wordpress.org/tag/rizzi-guestbook\n"
+"POT-Creation-Date: 2014-09-09 19:19:31+00:00\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"PO-Revision-Date: 2014-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+
+#: _admin_menu.php:29
+msgid "Settings"
+msgstr ""
+
+#: _admin_menu.php:61
+msgid "Options saved."
+msgstr ""
+
+#: _admin_menu.php:67
+msgid "Rizzi Guestbook Options"
+msgstr ""
+
+#: _admin_menu.php:69
+msgid "Manage Entries"
+msgstr ""
+
+#: _admin_menu.php:73
+msgid ""
+"\r\n"
+"<hr><center>\r\n"
+"   <h4>If you find this plugin useful, please click <a href=\"http://"
+"wordpress.org/support/view/plugin-reviews/rizzi-guestbook\" target=\"_blank"
+"\">HERE</a> to give it a high rating.</h4>\r\n"
+"\r\n"
+"\r\n"
+"\r\n"
+"\r\n"
+"\r\n"
+"</center>\r\n"
+"<hr />\r\n"
+"<br />\r\n"
+"There are several Guestbook options for WordPress, but many of them are\r\n"
+"extremely complicated, not user friendly, have incompatibility issues, and "
+"the list goes on and on.&nbsp;\r\n"
+"<b>Rizzi Guestbook is different.</b> &nbsp;The purpose for this plugin was "
+"to create a\r\n"
+"Guestbook that is simple to administrate and easy to use, while still "
+"maintaining\r\n"
+"the necessary functionality a Guestbook needs. &nbsp;It is probably the "
+"easiest guestbook to use ever created. &nbsp;\r\n"
+"I hope you find this Guestbook useful.\r\n"
+"<br />\r\n"
+"<br />\r\n"
+"Rizzi Guestbook is a modified and improved version of the WP-ViperGB plugin."
+"&nbsp;\r\n"
+"The plugin&#39;s listing page was beautifully redesigned, unnecessary "
+"features were\r\n"
+"removed to increase simplicity, mobile support was added, and many more "
+"display features have been implemented.&nbsp;It\r\n"
+"utilizes the built in comment feature of WordPress which makes the "
+"management of your guestbook a breeze.\r\n"
+"<br />&nbsp;\r\n"
+"<hr />\r\n"
+"<br />\r\n"
+"<b>Instructions:</b> &nbsp;To add a guestbook to your blog, simply create a "
+"new page, select it in the first combo box below, and click \"Save.\""
+msgstr ""
+
+#: _admin_menu.php:140
+msgid "Main Settings"
+msgstr ""
+
+#: _admin_menu.php:143
+msgid "Guestbook Page"
+msgstr ""
+
+#: _admin_menu.php:155
+msgid "Display Options"
+msgstr ""
+
+#: _admin_menu.php:170
+msgid "Extra Settings"
+msgstr ""
+
+#: _admin_menu.php:171
+msgid "Entries per Page"
+msgstr ""
+
+#: _admin_menu.php:172
+msgid "List from oldest to newest"
+msgstr ""
+
+#: _admin_menu.php:173
+msgid "Only allow registered users"
+msgstr ""
+
+#: _admin_menu.php:177
+msgid "Use Digg-style pagination"
+msgstr ""
+
+#: _admin_menu.php:179
+msgid "Save"
+msgstr ""
+
+#: _diggstyle.php:43 _diggstyle.php:45
+msgid "prev"
+msgstr ""
+
+#: _diggstyle.php:109 _diggstyle.php:111
+msgid "next"
+msgstr ""
+
+#: _output_guestbook.php:88
+msgid "Show Guestbook"
+msgstr ""
+
+#: _output_guestbook.php:92
+msgid "Sign Guestbook"
+msgstr ""
+
+#: _output_guestbook.php:101
+msgid "entries"
+msgstr ""
+
+#: _output_guestbook.php:111
+msgid "Page"
+msgstr ""
+
+#: _output_guestbook.php:159
+msgid "No entries yet"
+msgstr ""
+
+#: _output_guestbook.php:177
+msgid "This entry is awaiting moderation"
+msgstr ""
+
+#: _output_guestbook.php:181
+msgid "F j, Y"
+msgstr ""
+
+#: _output_guestbook.php:183
+msgid "g:i A"
+msgstr ""
+
+#: _output_guestbook.php:244
+msgid ""
+"Sorry, but only registered users are allowed to sign this guestbook.<br /"
+">Please create a user account, or login to sign."
+msgstr ""
+
+#: _output_guestbook.php:249
+msgid "*Name"
+msgstr ""
+
+#: _output_guestbook.php:257
+msgid "*Email"
+msgstr ""
+
+#: _output_guestbook.php:265
+msgid "Homepage"
+msgstr ""
+
+#: _output_guestbook.php:282
+msgid "If you'd like to customize these values, please "
+msgstr ""
+
+#: _output_guestbook.php:282
+msgid "Logout"
+msgstr ""
+
+#: _output_guestbook.php:288
+msgid "*Message"
+msgstr ""
+
+#: _output_guestbook.php:290
+msgid "Send"
+msgstr ""
