@@ -43,6 +43,11 @@ stop:
 	docker stop some-phpmyadmin &
 	$(info stopped)
 
+.PHONY: clean
+clean:
+	@rm -f $(PLUGIN_NAME).zip
+	$(info cleaned)
+
 .PHONY: ssh
 ssh:
 	dockssh -e some-instant-wordpress
