@@ -47,3 +47,6 @@ cache
 rizzi-guestbook/composer.phar
 rizzi-guestbook/composer.lock
 rizzi-guestbook/vendor/
+
+# Release
+rizzi-guestbook.zip

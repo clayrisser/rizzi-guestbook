@@ -6,7 +6,7 @@ SHELL := /bin/bash
 all: clean fetch_dependancies
 
 .PHONY: start
-start:
+start: install
 	make database &
 	sleep 5
 	make wordpress &
@@ -23,6 +23,14 @@ database:
 .PHONY: sql_client
 sql_client:
 	docker run --name some-phpmyadmin --rm --link some-mariadb:db -p 8889:80 phpmyadmin/phpmyadmin:latest
+
+.PHONY: install
+install:
+	composer install
+
+.PHONY: package
+package: install
+	zip -r $(PLUGIN_NAME).zip $(PLUGIN_NAME)
 
 .PHONY: init
 init:
