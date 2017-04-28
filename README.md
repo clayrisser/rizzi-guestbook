@@ -1,4 +1,4 @@
-# Rizzi Guestbook
-Create a WordPress guestbook using the build-in commenting capabilities of WordPress.
+# WP Plugin DevKit
+A WordPress plugin development kit
 
-The Pro version of Rizzi Guestbook is now open source.
+Loosely based on the [WordPress Plugin Boilerplate](https://github.com/DevinVinson/WordPress-Plugin-Boilerplate).
