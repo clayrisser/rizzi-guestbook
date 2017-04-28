@@ -100,4 +100,37 @@ class Rizzi_Guestbook_Public {
 
 	}
 
+	/**
+	 * Replace guestbook page contents with the guestbook.
+	 *
+	 * @since    4.0.0
+	 */
+	public function replace_content( $content ) {
+    global $comment, $post;
+    if ($post->ID != get_option('rizzi_guestbook_guestbook_page')) return $content;
+    include_once 'partials/rizzi-guestbook-public-header.php';
+    if (isset($_GET["sign"])) {
+      include_once 'partials/rizzi-guestbook-public-sign.php';
+    } else {
+      include_once 'partials/rizzi-guestbook-public-display.php';
+    }
+	}
+
+	/**
+	 * Suppress the regular comments by replacing it with a blank file.
+	 *
+	 * @since    4.0.0
+	 */
+  function suppress_comments( $file ) {
+    global $post;
+    if ($post->ID != get_option('rizzi_guestbook_guestbook_page')) return $file;
+    return dirname(__FILE__) . '/index.php';
+  }
+
+  function add_param($name, $value) {
+    $params = $_GET;
+    unset($params[$name]);
+    $params[$name] = $value;
+    return basename( $_SERVER['PHP_SELF'] ) . '?' .http_build_query( $params );
+  }
 }

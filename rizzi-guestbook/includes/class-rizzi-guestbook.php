@@ -171,6 +171,8 @@ class Rizzi_Guestbook {
 
 		$this->loader->add_action( 'wp_enqueue_scripts', $plugin_public, 'enqueue_styles' );
 		$this->loader->add_action( 'wp_enqueue_scripts', $plugin_public, 'enqueue_scripts' );
+    $this->loader->add_filter( 'the_content', $plugin_public, 'replace_content' );
+    $this->loader->add_filter( 'comments_template', $plugin_public, 'suppress_comments' );
 
 	}
 

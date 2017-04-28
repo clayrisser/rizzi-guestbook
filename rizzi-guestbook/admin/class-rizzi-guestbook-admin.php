@@ -146,17 +146,17 @@ class Rizzi_Guestbook_Admin {
       $this->plugin_name
     );
     add_settings_field(
-      $this->option_name . '_fav_text_editor',
-      __( 'Favorite Text Editor', 'rizzi-guestbook'),
-      array( $this, $this->option_name . '_fav_text_editor_cb' ),
+      $this->option_name . '_guestbook_page',
+      __( 'Guestbook Page', 'rizzi-guestbook'),
+      array( $this, $this->option_name . '_guestbook_page_cb' ),
       $this->plugin_name,
       $this->option_name . '_general',
-      array( 'label_for' => $this->option_name . '_fav_text_editor' )
+      array( 'label_for' => $this->option_name . '_guestbook_page' )
     );
     register_setting(
       $this->plugin_name,
-      $this->option_name . '_fav_text_editor',
-      array( $this, $this->option_name . '_sanitize_fav_text_editor' )
+      $this->option_name . '_guestbook_page',
+      array( $this, $this->option_name . '_sanitize_guestbook_page' )
     );
   }
 
@@ -174,19 +174,18 @@ class Rizzi_Guestbook_Admin {
    *
    * @since  4.0.0
    */
-  public function rizzi_guestbook_fav_text_editor_cb() {
-    $option_name = $this->option_name . '_fav_text_editor';
-    $fav_text_editor = get_option( $option_name );
+  public function rizzi_guestbook_guestbook_page_cb() {
+    $option_name = $this->option_name . '_guestbook_page';
+    $guestbook_page= get_option( $option_name );
+    $pages = get_pages();
     ?>
       <fieldset>
         <label>
-          <input type="radio" id="<?php echo $option_name; ?>" name="<?php echo $option_name; ?>" value="vim" <?php checked($fav_text_editor, 'vim'); ?>>
-          <?php _e( 'Vim', 'rizzi-guestbook' ); ?>
-        </label>
-        <br />
-        <label>
-          <input type="radio" name="<?php echo $option_name; ?>" value="emacs" <?php checked($fav_text_editor, 'emacs'); ?>>
-          <?php _e( 'Emacs', 'rizzi-guestbook' ); ?>
+          <select id="<?php echo $option_name; ?>" name="<?php echo $option_name; ?>">
+            <?php foreach($pages as $page) { ?>
+              <option value="<?php echo $page->ID; ?>" <?php echo $guestbook_page == $page->ID ? 'selected' : ''; ?>><?php echo $page->post_title; ?></option>
+            <?php } ?>
+          </select>
         </label>
       </fieldset>
     <?php
@@ -195,13 +194,11 @@ class Rizzi_Guestbook_Admin {
   /**
    * Sanitize the fav text editor value before being saved to database
    *
-   * @param  string $fav_text_editor $_POST value
+   * @param  string $guestbook_page $_POST value
    * @since  4.0.0
    * @return string           Sanitized value
    */
-  public function rizzi_guestbook_sanitize_fav_text_editor( $fav_text_editor ) {
-    if ( in_array( $fav_text_editor, array( 'vim', 'emacs' ), true ) ) {
-      return $fav_text_editor;
-    }
+  public function rizzi_guestbook_sanitize_guestbook_page( $guestbook_page ) {
+    return $guestbook_page;
   }
 }

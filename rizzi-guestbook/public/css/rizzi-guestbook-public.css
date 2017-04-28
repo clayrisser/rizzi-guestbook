@@ -2,3 +2,25 @@
  * All of the CSS for your public-facing functionality should be
  * included in this file.
  */
+
+.rizzi-guestbook-display .author {
+  font-weight: bold;
+}
+
+.rizzi-guestbook-display .date {
+  padding-top: 20px;
+  font-style: italic;
+}
+
+.rizzi-guestbook-display .edit {
+  font-size: 12px;
+  font-style: italic;
+}
+
+.rizzi-guestbook-header {
+  padding: 20px;
+}
+
+.rizzi-guestbook-sign input, .rizzi-guestbook-sign textarea {
+  margin-bottom: 20px;
+}
