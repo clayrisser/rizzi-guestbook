@@ -145,9 +145,10 @@ class Rizzi_Guestbook_Admin {
       array( $this, $this->option_name . '_general_cb' ),
       $this->plugin_name
     );
+    // guestbook_page
     add_settings_field(
       $this->option_name . '_guestbook_page',
-      __( 'Guestbook Page', 'rizzi-guestbook'),
+      __( 'Guestbook Page', 'rizzi-guestbook' ),
       array( $this, $this->option_name . '_guestbook_page_cb' ),
       $this->plugin_name,
       $this->option_name . '_general',
@@ -157,6 +158,48 @@ class Rizzi_Guestbook_Admin {
       $this->plugin_name,
       $this->option_name . '_guestbook_page',
       array( $this, $this->option_name . '_sanitize_guestbook_page' )
+    );
+    // sign_guestbook_title
+    add_settings_field(
+      $this->option_name . '_sign_guestbook_title',
+      __( 'Sign Guestbook Title', 'rizzi-guestbook' ),
+      array( $this, $this->option_name . '_sign_guestbook_title_cb' ),
+      $this->plugin_name,
+      $this->option_name . '_general',
+      array( 'label_for' => $this->option_name . '_sign_guestbook_title' )
+    );
+    register_setting(
+      $this->plugin_name,
+      $this->option_name . '_sign_guestbook_title',
+      array( $this, $this->option_name . '_sanitize_sign_guestbook_title' )
+    );
+    // show_guestbook_title
+    add_settings_field(
+      $this->option_name . '_show_guestbook_title',
+      __( 'Show Guestbook Title', 'rizzi-guestbook' ),
+      array( $this, $this->option_name . '_show_guestbook_title_cb' ),
+      $this->plugin_name,
+      $this->option_name . '_general',
+      array( 'label_for' => $this->option_name . '_show_guestbook_title' )
+    );
+    register_setting(
+      $this->plugin_name,
+      $this->option_name . '_show_guestbook_title',
+      array( $this, $this->option_name . '_sanitize_show_guestbook_title' )
+    );
+    // only_registered
+    add_settings_field(
+      $this->option_name . '_only_registered',
+      __( 'Only Registered', 'rizzi-guestbook' ),
+      array( $this, $this->option_name . '_only_registered_cb' ),
+      $this->plugin_name,
+      $this->option_name . '_general',
+      array( 'label_for' => $this->option_name . '_only_registered' )
+    );
+    register_setting(
+      $this->plugin_name,
+      $this->option_name . '_only_registered',
+      array( $this, $this->option_name . '_sanitize_only_registered' )
     );
   }
 
@@ -170,20 +213,24 @@ class Rizzi_Guestbook_Admin {
   }
 
   /**
-   * Render the radio input field for fav text editor option
+   * Render the selection field for guestbook page setting
    *
    * @since  4.0.0
    */
   public function rizzi_guestbook_guestbook_page_cb() {
     $option_name = $this->option_name . '_guestbook_page';
-    $guestbook_page= get_option( $option_name );
+    $guestbook_page = get_option( $option_name );
     $pages = get_pages();
     ?>
       <fieldset>
         <label>
-          <select id="<?php echo $option_name; ?>" name="<?php echo $option_name; ?>">
+          <select id="<?php echo $option_name; ?>"
+                  name="<?php echo $option_name; ?>">
             <?php foreach($pages as $page) { ?>
-              <option value="<?php echo $page->ID; ?>" <?php echo $guestbook_page == $page->ID ? 'selected' : ''; ?>><?php echo $page->post_title; ?></option>
+              <option value="<?php echo $page->ID; ?>"
+                      <?php echo $guestbook_page == $page->ID ? 'selected' : ''; ?>>
+                <?php echo $page->post_title; ?>
+              </option>
             <?php } ?>
           </select>
         </label>
@@ -192,7 +239,68 @@ class Rizzi_Guestbook_Admin {
   }
 
   /**
-   * Sanitize the fav text editor value before being saved to database
+   * Render the sign_guestbook_title for sign guestbook title setting
+   *
+   * @since  4.0.0
+   */
+  public function rizzi_guestbook_sign_guestbook_title_cb() {
+    $option_name = $this->option_name . '_sign_guestbook_title';
+    $sign_guestbook_title = get_option( $option_name );
+    ?>
+      <fieldset>
+        <label>
+          <input id="<?php echo $option_name; ?>"
+                 name="<?php echo $option_name; ?>"
+                 type="text"
+                 value="<?php echo $sign_guestbook_title; ?>" />
+        </label>
+      </fieldset>
+    <?php
+  }
+
+  /**
+   * Render the show_guestbook_title for show guestbook title setting
+   *
+   * @since  4.0.0
+   */
+  public function rizzi_guestbook_show_guestbook_title_cb() {
+    $option_name = $this->option_name . '_show_guestbook_title';
+    $show_guestbook_title= get_option( $option_name );
+    ?>
+      <fieldset>
+        <label>
+          <input id="<?php echo $option_name; ?>"
+                 name="<?php echo $option_name; ?>"
+                 type="text"
+                 value="<?php echo $show_guestbook_title; ?>" />
+        </label>
+      </fieldset>
+    <?php
+  }
+
+  /**
+   * Render the only_registered for show guestbook title setting
+   *
+   * @since  4.0.0
+   */
+  public function rizzi_guestbook_only_registered_cb() {
+    $option_name = $this->option_name . '_only_registered';
+    $only_registered= get_option( $option_name );
+    ?>
+      <fieldset>
+        <label>
+          <input id="<?php echo $option_name; ?>"
+                 name="<?php echo $option_name; ?>"
+                 type="checkbox"
+                 value="1"
+                 <?php echo $only_registered ? 'checked' : ''; ?> />
+        </label>
+      </fieldset>
+    <?php
+  }
+
+  /**
+   * Sanitize the guestbook_page_value before being saved to database
    *
    * @param  string $guestbook_page $_POST value
    * @since  4.0.0
@@ -200,5 +308,38 @@ class Rizzi_Guestbook_Admin {
    */
   public function rizzi_guestbook_sanitize_guestbook_page( $guestbook_page ) {
     return $guestbook_page;
+  }
+
+  /**
+   * Sanitize the sign_guestbook_title value before being saved to database
+   *
+   * @param  string $sign_guestbook_title $_POST value
+   * @since  4.0.0
+   * @return string           Sanitized value
+   */
+  public function rizzi_guestbook_sanitize_sign_guestbook_title( $sign_guestbook_title ) {
+    return $sign_guestbook_title;
+  }
+
+  /**
+   * Sanitize the show_guestbook_title value before being saved to database
+   *
+   * @param  string $show_guestbook_title $_POST value
+   * @since  4.0.0
+   * @return string           Sanitized value
+   */
+  public function rizzi_guestbook_sanitize_show_guestbook_title( $show_guestbook_title ) {
+    return $show_guestbook_title;
+  }
+
+  /**
+   * Sanitize the only_registered value before being saved to database
+   *
+   * @param  string $only_registered $_POST value
+   * @since  4.0.0
+   * @return string           Sanitized value
+   */
+  public function rizzi_guestbook_sanitize_only_registered( $only_registered ) {
+    return $only_registered;
   }
 }

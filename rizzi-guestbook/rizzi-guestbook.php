@@ -38,6 +38,12 @@ require_once __DIR__ . '/vendor/autoload.php';
  * This action is documented in includes/class-rizzi-guestbook-activator.php
  */
 function activate_rizzi_guestbook() {
+  $option_name = 'rizzi_guestbook';
+  $pages = get_pages();
+  update_option( $option_name . '_guestbook_page', $pages[0]->ID );
+  update_option( $option_name . '_sign_guestbook_title', 'Sign Guestbook' );
+  update_option( $option_name . '_show_guestbook_title', 'Show Guestbook' );
+  update_option( $option_name . '_only_registered', false );
 	require_once plugin_dir_path( __FILE__ ) . 'includes/class-rizzi-guestbook-activator.php';
 	Rizzi_Guestbook_Activator::activate();
 }

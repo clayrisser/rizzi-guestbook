@@ -18,8 +18,8 @@
 
 <div class="rizzi-guestbook-header">
   <?php if (isset($_GET["sign"])) { ?>
-    Show Guestbook | <a href="<?php echo remove_query_arg('sign', $_SERVER['REQUEST_URI']) ?>">Sign Guestbook</a>
+    Sign Guestbook | <a href="<?php echo remove_query_arg('sign', $_SERVER['REQUEST_URI']) ?>">Show Guestbook</a>
   <?php } else { ?>
-    <a href="<?php echo add_query_arg(array('sign' => '1'), $_SERVER['REQUEST_URI']) ?>">Show Guestbook</a> | Sign Guestbook
+    <a href="<?php echo add_query_arg(array('sign' => '1'), $_SERVER['REQUEST_URI']) ?>">Sign Guestbook</a> | Show Guestbook
   <?php } ?>
 </div>

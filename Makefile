@@ -6,7 +6,7 @@ SHELL := /bin/bash
 all: clean fetch_dependancies
 
 .PHONY: start
-start: install
+start: clean install
 	make database &
 	sleep 5
 	make wordpress &
