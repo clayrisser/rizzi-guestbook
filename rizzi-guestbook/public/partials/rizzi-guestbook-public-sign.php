@@ -12,13 +12,18 @@
  * @subpackage Rizzi_Guestbook/public/partials
  */
 
-  $commenter = wp_get_current_commenter();
-  $user = wp_get_current_user();
+$option_name = 'rizzi_guestbook';
+$commenter = wp_get_current_commenter();
+$user = wp_get_current_user();
 ?>
 
 <!-- This file should primarily consist of HTML with a little bit of PHP. -->
 
 <div class="rizzi-guestbook-sign">
+  <?php if (get_option($option_name . '_only_registered') && !is_user_logged_in()) {
+    echo __('Must be logged in to sign guestbook', 'rizzi-guestbook');
+    exit();
+  } ?>
   <form action="<?php echo get_option("siteurl") ?>/wp-comments-post.php" method="POST" id="commentform">
     <?php if ($user->ID) { ?>
       <input type="text" name="author" id="author" value="<?php echo $user->display_name ?>" disabled="disabled" />

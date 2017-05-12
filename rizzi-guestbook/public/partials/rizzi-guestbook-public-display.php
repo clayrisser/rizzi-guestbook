@@ -12,8 +12,8 @@
  * @subpackage Rizzi_Guestbook/public/partials
  */
 
-  $comments = get_comments( array('post_id' => $post->ID, 'order' => 'ASC' ) );
-  if ( count($comments) <= 0 ) echo 'No entries yet. Be the first to sign the Guestbook';
+$comments = get_comments( array('post_id' => $post->ID, 'order' => 'ASC' ) );
+if ( count($comments) <= 0 ) echo 'No entries yet. Be the first to sign the Guestbook';
 ?>
 
 <!-- This file should primarily consist of HTML with a little bit of PHP. -->
