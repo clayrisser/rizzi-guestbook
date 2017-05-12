@@ -44,6 +44,8 @@ function activate_rizzi_guestbook() {
   update_option( $option_name . '_sign_guestbook_title', 'Sign Guestbook' );
   update_option( $option_name . '_show_guestbook_title', 'Show Guestbook' );
   update_option( $option_name . '_only_registered', false );
+  update_option( $option_name . '_enable_recaptcha', false );
+  update_option( $option_name . '_recaptcha_key', '' );
 	require_once plugin_dir_path( __FILE__ ) . 'includes/class-rizzi-guestbook-activator.php';
 	Rizzi_Guestbook_Activator::activate();
 }

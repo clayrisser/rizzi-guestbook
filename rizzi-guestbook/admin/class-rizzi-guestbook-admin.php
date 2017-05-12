@@ -201,6 +201,34 @@ class Rizzi_Guestbook_Admin {
       $this->option_name . '_only_registered',
       array( $this, $this->option_name . '_sanitize_only_registered' )
     );
+    // enable_recaptcha
+    add_settings_field(
+      $this->option_name . '_enable_recaptcha',
+      __( 'Enable reCaptcha', 'rizzi-guestbook' ),
+      array( $this, $this->option_name . '_enable_recaptcha_cb' ),
+      $this->plugin_name,
+      $this->option_name . '_general',
+      array( 'label_for' => $this->option_name . '_enable_recaptcha' )
+    );
+    register_setting(
+      $this->plugin_name,
+      $this->option_name . '_enable_recaptcha',
+      array( $this, $this->option_name . '_sanitize_enable_recaptcha' )
+    );
+    // recaptcha_key
+    add_settings_field(
+      $this->option_name . '_recaptcha_key',
+      __( 'reCaptcha Key', 'rizzi-guestbook' ),
+      array( $this, $this->option_name . '_recaptcha_key_cb' ),
+      $this->plugin_name,
+      $this->option_name . '_general',
+      array( 'label_for' => $this->option_name . '_recaptcha_key' )
+    );
+    register_setting(
+      $this->plugin_name,
+      $this->option_name . '_recaptcha_key',
+      array( $this, $this->option_name . '_sanitize_recaptcha_key' )
+    );
   }
 
   /**
@@ -300,6 +328,47 @@ class Rizzi_Guestbook_Admin {
   }
 
   /**
+   * Render the enable_recaptcha for show guestbook title setting
+   *
+   * @since  4.0.0
+   */
+  public function rizzi_guestbook_enable_recaptcha_cb() {
+    $option_name = $this->option_name . '_enable_recaptcha';
+    $enable_recaptcha= get_option( $option_name );
+    ?>
+      <fieldset>
+        <label>
+          <input id="<?php echo $option_name; ?>"
+                 name="<?php echo $option_name; ?>"
+                 type="checkbox"
+                 value="1"
+                 <?php echo $enable_recaptcha ? 'checked' : ''; ?> />
+        </label>
+      </fieldset>
+    <?php
+  }
+
+  /**
+   * Render the recaptcha_key for show guestbook title setting
+   *
+   * @since  4.0.0
+   */
+  public function rizzi_guestbook_recaptcha_key_cb() {
+    $option_name = $this->option_name . '_recaptcha_key';
+    $recaptcha_key= get_option( $option_name );
+    ?>
+      <fieldset>
+        <label>
+          <input id="<?php echo $option_name; ?>"
+                 name="<?php echo $option_name; ?>"
+                 type="text"
+                 value="<?php echo $recaptcha_key; ?>" />
+        </label>
+      </fieldset>
+    <?php
+  }
+
+  /**
    * Sanitize the guestbook_page_value before being saved to database
    *
    * @param  string $guestbook_page $_POST value
@@ -341,5 +410,27 @@ class Rizzi_Guestbook_Admin {
    */
   public function rizzi_guestbook_sanitize_only_registered( $only_registered ) {
     return $only_registered;
+  }
+
+  /**
+   * Sanitize the enable_recaptcha value before being saved to database
+   *
+   * @param  string $enable_recaptcha $_POST value
+   * @since  4.0.0
+   * @return string           Sanitized value
+   */
+  public function rizzi_guestbook_sanitize_enable_recaptcha( $enable_recaptcha ) {
+    return $enable_recaptcha;
+  }
+
+  /**
+   * Sanitize the recaptcha_key value before being saved to database
+   *
+   * @param  string $recaptcha_key $_POST value
+   * @since  4.0.0
+   * @return string           Sanitized value
+   */
+  public function rizzi_guestbook_sanitize_recaptcha_key( $recaptcha_key ) {
+    return $recaptcha_key;
   }
 }
