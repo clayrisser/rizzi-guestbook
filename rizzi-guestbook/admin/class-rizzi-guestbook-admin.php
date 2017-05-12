@@ -215,19 +215,33 @@ class Rizzi_Guestbook_Admin {
       $this->option_name . '_enable_recaptcha',
       array( $this, $this->option_name . '_sanitize_enable_recaptcha' )
     );
-    // recaptcha_key
+    // recaptcha_public_key
     add_settings_field(
-      $this->option_name . '_recaptcha_key',
-      __( 'reCaptcha Key', 'rizzi-guestbook' ),
-      array( $this, $this->option_name . '_recaptcha_key_cb' ),
+      $this->option_name . '_recaptcha_public_key',
+      __( 'reCaptcha Public Key', 'rizzi-guestbook' ),
+      array( $this, $this->option_name . '_recaptcha_public_key_cb' ),
       $this->plugin_name,
       $this->option_name . '_general',
-      array( 'label_for' => $this->option_name . '_recaptcha_key' )
+      array( 'label_for' => $this->option_name . '_recaptcha_public_key' )
     );
     register_setting(
       $this->plugin_name,
-      $this->option_name . '_recaptcha_key',
-      array( $this, $this->option_name . '_sanitize_recaptcha_key' )
+      $this->option_name . '_recaptcha_public_key',
+      array( $this, $this->option_name . '_sanitize_recaptcha_public_key' )
+    );
+    // recaptcha_private_key
+    add_settings_field(
+      $this->option_name . '_recaptcha_private_key',
+      __( 'reCaptcha Private Key', 'rizzi-guestbook' ),
+      array( $this, $this->option_name . '_recaptcha_private_key_cb' ),
+      $this->plugin_name,
+      $this->option_name . '_general',
+      array( 'label_for' => $this->option_name . '_recaptcha_private_key' )
+    );
+    register_setting(
+      $this->plugin_name,
+      $this->option_name . '_recaptcha_private_key',
+      array( $this, $this->option_name . '_sanitize_recaptcha_private_key' )
     );
   }
 
@@ -349,20 +363,40 @@ class Rizzi_Guestbook_Admin {
   }
 
   /**
-   * Render the recaptcha_key for show guestbook title setting
+   * Render the recaptcha_public_key for show guestbook title setting
    *
    * @since  4.0.0
    */
-  public function rizzi_guestbook_recaptcha_key_cb() {
-    $option_name = $this->option_name . '_recaptcha_key';
-    $recaptcha_key= get_option( $option_name );
+  public function rizzi_guestbook_recaptcha_public_key_cb() {
+    $option_name = $this->option_name . '_recaptcha_public_key';
+    $recaptcha_public_key= get_option( $option_name );
     ?>
       <fieldset>
         <label>
           <input id="<?php echo $option_name; ?>"
                  name="<?php echo $option_name; ?>"
                  type="text"
-                 value="<?php echo $recaptcha_key; ?>" />
+                 value="<?php echo $recaptcha_public_key; ?>" />
+        </label>
+      </fieldset>
+    <?php
+  }
+
+  /**
+   * Render the recaptcha_private_key for show guestbook title setting
+   *
+   * @since  4.0.0
+   */
+  public function rizzi_guestbook_recaptcha_private_key_cb() {
+    $option_name = $this->option_name . '_recaptcha_private_key';
+    $recaptcha_private_key= get_option( $option_name );
+    ?>
+      <fieldset>
+        <label>
+          <input id="<?php echo $option_name; ?>"
+                 name="<?php echo $option_name; ?>"
+                 type="text"
+                 value="<?php echo $recaptcha_private_key; ?>" />
         </label>
       </fieldset>
     <?php
@@ -424,13 +458,24 @@ class Rizzi_Guestbook_Admin {
   }
 
   /**
-   * Sanitize the recaptcha_key value before being saved to database
+   * Sanitize the recaptcha_public_key value before being saved to database
    *
-   * @param  string $recaptcha_key $_POST value
+   * @param  string $recaptcha_public_key $_POST value
    * @since  4.0.0
    * @return string           Sanitized value
    */
-  public function rizzi_guestbook_sanitize_recaptcha_key( $recaptcha_key ) {
-    return $recaptcha_key;
+  public function rizzi_guestbook_sanitize_recaptcha_public_key( $recaptcha_public_key ) {
+    return $recaptcha_public_key;
+  }
+
+  /**
+   * Sanitize the recaptcha_private_key value before being saved to database
+   *
+   * @param  string $recaptcha_private_key $_POST value
+   * @since  4.0.0
+   * @return string           Sanitized value
+   */
+  public function rizzi_guestbook_sanitize_recaptcha_private_key( $recaptcha_private_key ) {
+    return $recaptcha_private_key;
   }
 }

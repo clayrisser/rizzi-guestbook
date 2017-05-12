@@ -21,6 +21,6 @@
   padding: 20px;
 }
 
-.rizzi-guestbook-sign input, .rizzi-guestbook-sign textarea {
+.rizzi-guestbook-sign input, .rizzi-guestbook-sign textarea, .rizzi-guestbook-sign .recaptcha {
   margin-bottom: 20px;
 }
