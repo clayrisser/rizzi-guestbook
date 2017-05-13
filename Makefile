@@ -1,4 +1,4 @@
-CWD := $(shell readlink -en $(dir $(word $(words $(MAKEFILE_LIST)),$(MAKEFILE_LIST))))
+CWD := $(shell pwd)
 PLUGIN_NAME := rizzi-guestbook
 SHELL := /bin/bash
 
@@ -34,7 +34,23 @@ package: install
 
 .PHONY: init
 init:
-	@docker run --name some-php --rm -it -v $(CWD):/app/ -w /app/ php:7.0-cli bash -c "php tools.php init"
+	@docker run --name some-php --rm -it -v $(CWD):/app/ -e PARENT_USER=$$USER -w /app/ php:7.0-cli bash -c "php tools.php init"
+
+.PHONY: publish
+publish: svn
+	@docker run --name some-php --rm -it -v $(CWD):/app/ -e PARENT_USER=$$USER -w /app/ php:7.0-cli bash -c "php tools.php tag"
+	@rm -rf $(CWD)/svn/trunk/
+	@cp -r $(CWD)/rizzi-guestbook/ $(CWD)/svn/trunk/
+	-@docker run --name some-svn --rm -it -v $(CWD)/svn/:/src/ --entrypoint /bin/sh jgsqware/svn-client -c \
+		"svn status | grep -Eo 'trunk.+' | xargs svn delete 2> /dev/null" || true
+	-@docker run --name some-svn --rm -it -v $(CWD)/svn/:/src/ jgsqware/svn-client add --force .
+	@read -p "WordPress Username: " USR && \
+		read -p "Commit Message: " MSG && \
+		docker run --name some-svn --rm -it -v $(CWD)/svn/:/src/ jgsqware/svn-client ci --username $$USR -m "$$MSG"
+
+svn:
+	@svn checkout https://plugins.svn.wordpress.org/rizzi-guestbook ./svn
+	@echo plugin checked out
 
 .PHONY: stop
 stop:
@@ -45,7 +61,7 @@ stop:
 
 .PHONY: clean
 clean:
-	-@rm -rf ./$(PLUGIN_NAME).zip ./i18n-tools
+	-@rm -rf ./$(PLUGIN_NAME).zip ./i18n-tools ./svn
 	@echo cleaned
 
 .PHONY: ssh

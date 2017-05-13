@@ -8,107 +8,123 @@ Stable tag: 4.7
 License: GPL-3.0+
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
 
-Here is a short description of the plugin.  This should be no more than 150 characters.  No markup here.
+Create a guestbook using the built-in commenting capabilities of WordPress
 
 == Description ==
 
-This is the long description.  No limit, and you can use Markdown (as well as in the following sections).
-
-For backwards compatibility, if this section is missing, the full length of the short description will be used, and
-Markdown parsed.
-
-A few notes about the sections above:
-
-*   "Contributors" is a comma separated list of wp.org/wp-plugins.org usernames
-*   "Tags" is a comma separated list of tags that apply to the plugin
-*   "Requires at least" is the lowest version that the plugin will work on
-*   "Tested up to" is the highest version that you've *successfully used to test the plugin*. Note that it might work on
-higher versions... this is just the highest one you've verified.
-*   Stable tag should indicate the Subversion "tag" of the latest stable version, or "trunk," if you use `/trunk/` for
-stable.
-
-    Note that the `readme.txt` of the stable tag is the one that is considered the defining one for the plugin, so
-if the `/trunk/readme.txt` file says that the stable tag is `4.7`, then it is `/tags/4.7/readme.txt` that'll be used
-for displaying information about the plugin.  In this situation, the only thing considered from the trunk `readme.txt`
-is the stable tag pointer.  Thus, if you develop in trunk, you can update the trunk `readme.txt` to reflect changes in
-your in-development version, without having that information incorrectly disclosed about the current stable version
-that lacks those changes -- as long as the trunk's `readme.txt` points to the correct stable tag.
-
-    If no stable tag is provided, it is assumed that trunk is stable, but you should specify "trunk" if that's where
-you put the stable version, in order to eliminate any doubt.
+* Allow anyone to sign your guestbook or limit it just to users.
+* Lives in a standard WordPress page and uses comments for entries
+* Uses WordPress built-in moderation and antispam functionality
+* Two-View layout provides one view for submitting entries and another for reading them
+* Compatible with mobile themes
+* No custom database tables are required
+* Simplistic design makes it extremely user friendly
+* Add a date stamp so you know when people signed your guestbook
+* Change the view names
+* Internationalization support
+* Google reCaptcha support
+* 100% free and open source
 
 == Installation ==
 
-This section describes how to install the plugin and get it working.
+1. Login to your WordPress admin panel.
 
-e.g.
+2a. Upload the zip file to your `/wp-content/plugins` directory and unzip it or . . .
 
-1. Upload `rizzi-guestbook.php` to the `/wp-content/plugins/` directory
-1. Activate the plugin through the 'Plugins' menu in WordPress
-1. Place `<?php do_action('rizzi_guestbook_hook'); ?>` in your templates
+2b. Navigate to *Plugins -> Add New -> Upload Plugin*, and upload and install the zip file.
 
-== Frequently Asked Questions ==
+3. Activate the plugin.
 
-= A question that someone might have =
+4. Create a new page.
 
-An answer to that question.
+5. Navigate to *Settings -> Rizzi Guestbook*.
 
-= What about foo bar? =
+6. Use the *Guestbook Page* dropdown to select the Page you created above.
 
-Answer to foo bar dilemma.
-
-== Screenshots ==
-
-1. This screen shot description corresponds to screenshot-1.(png|jpg|jpeg|gif). Note that the screenshot is taken from
-the /assets directory or the directory that contains the stable readme.txt (tags or trunk). Screenshots in the /assets
-directory take precedence. For example, `/assets/screenshot-1.png` would win over `/tags/4.7/screenshot-1.png`
-(or jpg, jpeg, gif).
-2. This is the second screen shot
+7. Click **Save Settings**, and you're done! You can now enjoy your new guestbook.
 
 == Changelog ==
 
-= 1.0 =
-* A change since the previous version.
-* Another change.
+= 4.0.1 (2017-05-12) =
+* Updated README
 
-= 0.5 =
-* List versions from most recent at top to oldest at bottom.
+= 4.0.0 (2017-05-12) =
+* Rebuilt from ground up
+* Pro Version now free
 
-== Upgrade Notice ==
+= 3.0.0 (2015-03-06) =
+* Complete New Design
+* Added Google's No Captcha reCaptcha
+* Added option to change page names
+* Added multiple date stamp formats
+* Fixed several bugs
 
-= 1.0 =
-Upgrade notices describe the reason a user should upgrade.  No more than 300 characters.
+= 2.3.3 (2014-09-09) =
+* Fixed date bug
 
-= 0.5 =
-This version fixes a security related bug.  Upgrade immediately.
+= 2.3.2 (2014-09-09) =
+* Fixed date bug
 
-== Arbitrary section ==
+= 2.3.1 (2014-09-09) =
+* Fixed CSS error
+* Fixed language errors
+* Added POT
 
-You may provide arbitrary sections, in the same format as the ones above.  This may be of use for extremely complicated
-plugins where more information needs to be conveyed that doesn't fit into the categories of "description" or
-"installation."  Arbitrary sections will be shown below the built-in sections outlined above.
+= 2.3.0 (2014-09-06) =
+* Tested with 4.0
+* Fixed date stamp
+* Fixed CSS errors
+* Modified admin page
+* Improved sign guestbook page
+* Modified listings page
 
-== A brief Markdown Example ==
+= 2.2.1 (2014-03-26) =
+* Tested with 3.8.1
+* Fixed minor bug
 
-Ordered list:
+= 2.2.0 (2014-03-26) =
+* Tested with 3.8.1
+* Added an option to add a date stamp
+* Changed "Text:" to "Message:"
 
-1. Some feature
-1. Another feature
-1. Something else about the plugin
+= 2.1.1 (2014-01-15) =
+* Tested with 3.8.1
+* Replaced advertisement with donate button
 
-Unordered list:
+= 2.1.0 (2014-01-15) =
+* Fixed <hr> error on Sign Guestbook page
+* Added advertisement to help fund this project
 
-* something
-* something else
-* third thing
+= 2.0.2 (2014-01-08) =
+* Fixed a minor bug
 
-Here's a link to [WordPress](http://wordpress.org/ "Your favorite software") and one to [Markdown's Syntax Documentation][markdown syntax].
-Titles are optional, naturally.
+= 2.0.1 (2014-01-06) =
+* Modified listings page
+* More bug fixes
+* Removed useless files
 
-[markdown syntax]: http://daringfireball.net/projects/markdown/syntax
-            "Markdown is what the parser uses to process much of the readme file"
+= 2.0.0 (2014-01-01) =
+* Redesigned listings page
+* Simplified admin menu
+* Added mobile support
 
-Markdown uses email style notation for blockquotes and I've been told:
-> Asterisks for *emphasis*. Double it up  for **strong**.
+= 1.2.1 (2013-11-22) =
+* More bug fixes
 
-`<?php code(); // goes in backticks ?>`
+= 1.2.0 (2013-11-13) =
+* Modified sign guestbook page
+
+= 1.1.1 (2013-08-22) =
+* Cleaned and simplified code
+
+= 1.1.0 (2013-06-20) =
+* Modified listings page
+
+= 1.0.2 (2013-05-24) =
+* More bug fixes
+
+= 1.0.1 (2013-04-27) =
+* Bug fixes
+
+= 1.0.0 (2013-04-17) =
+* First Release

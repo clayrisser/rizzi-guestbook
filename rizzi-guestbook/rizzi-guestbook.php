@@ -9,14 +9,14 @@
  * that starts the plugin.
  *
  * @link              https://jamrizzi.com/
- * @since             4.0.0
+ * @since             4.0.1
  * @package           Rizzi_Guestbook
  *
  * @wordpress-plugin
  * Plugin Name:       Rizzi Guestbook
  * Plugin URI:        https://wordpress.org/plugins/rizzi-guestbook/
  * Description:       Create a guestbook using the built-in commenting capabilities of WordPress
- * Version:           4.0.0
+ * Version:           4.0.1
  * Author:            Jam Risser
  * Author URI:        https://jamrizzi.com/
  * License:           GPL-3.0+

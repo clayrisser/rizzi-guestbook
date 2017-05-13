@@ -6,9 +6,23 @@ function main($argv) {
   case 'init':
     init();
     break;
+  case 'tag':
+    tag();
+    break;
   default:
     write_ln('Invalid command', 1);
   }
+}
+
+function tag() {
+  $file = file_get_contents(getcwd().'/rizzi-guestbook/rizzi-guestbook.php');
+  preg_match_all('/(?!\*\sVersion:\s+)\d+\.\d+\.\d/', $file, $matches);
+  $tag = $matches[0][0];
+  $user = $_ENV['PARENT_USER'];
+  exec('useradd -m ' . $user);
+  exec('cp -r /app/rizzi-guestbook/ /app/svn/tags/' . $tag . '/');
+  exec('chown -R ' . $user . ':' . $user . ' /app/');
+  write_ln('Created tag ' . $tag);
 }
 
 function init() {

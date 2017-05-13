@@ -51,5 +51,6 @@ rizzi-guestbook/vendor/
 # Release
 rizzi-guestbook.zip
 
-# WordPress tools
+# WordPress
 i18n-tools
+svn
