@@ -1,0 +1,84 @@
+# Copyright (C) 2017 Rizzi Guestbook
+# This file is distributed under the same license as the Rizzi Guestbook package.
+msgid ""
+msgstr ""
+"Project-Id-Version: Rizzi Guestbook 4.0.0\n"
+"Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/rizzi-guestbook\n"
+"POT-Creation-Date: 2017-05-13 00:58:09+00:00\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"PO-Revision-Date: 2017-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+
+#: admin/class-rizzi-guestbook-admin.php:119
+msgid "Rizzi Guestbook Settings"
+msgstr ""
+
+#. #-#-#-#-#  rizzi-guestbook.pot (Rizzi Guestbook 4.0.0)  #-#-#-#-#
+#. Plugin Name of the plugin/theme
+#: admin/class-rizzi-guestbook-admin.php:120
+msgid "Rizzi Guestbook"
+msgstr ""
+
+#: admin/class-rizzi-guestbook-admin.php:144
+msgid "General"
+msgstr ""
+
+#: admin/class-rizzi-guestbook-admin.php:151
+msgid "Guestbook Page"
+msgstr ""
+
+#: admin/class-rizzi-guestbook-admin.php:165
+msgid "Sign Guestbook Title"
+msgstr ""
+
+#: admin/class-rizzi-guestbook-admin.php:179
+msgid "Show Guestbook Title"
+msgstr ""
+
+#: admin/class-rizzi-guestbook-admin.php:193
+msgid "Only Registered"
+msgstr ""
+
+#: admin/class-rizzi-guestbook-admin.php:207
+msgid "Enable reCaptcha"
+msgstr ""
+
+#: admin/class-rizzi-guestbook-admin.php:221
+msgid "reCaptcha Public Key"
+msgstr ""
+
+#: admin/class-rizzi-guestbook-admin.php:235
+msgid "reCaptcha Private Key"
+msgstr ""
+
+#: admin/class-rizzi-guestbook-admin.php:254
+msgid "Please change the settings accordingly."
+msgstr ""
+
+#: public/partials/rizzi-guestbook-public-sign.php:24
+msgid "Must be logged in to sign guestbook"
+msgstr ""
+
+#: public/partials/rizzi-guestbook-public-sign.php:50
+msgid "Submit"
+msgstr ""
+
+#. Plugin URI of the plugin/theme
+msgid "https://wordpress.org/plugins/rizzi-guestbook/"
+msgstr ""
+
+#. Description of the plugin/theme
+msgid ""
+"Create a guestbook using the built-in commenting capabilities of WordPress"
+msgstr ""
+
+#. Author of the plugin/theme
+msgid "Jam Risser"
+msgstr ""
+
+#. Author URI of the plugin/theme
+msgid "https://jamrizzi.com/"
+msgstr ""
