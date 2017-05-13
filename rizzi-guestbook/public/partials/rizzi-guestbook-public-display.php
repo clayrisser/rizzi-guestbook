@@ -13,7 +13,8 @@
  */
 
 $comments = get_comments( array('post_id' => $post->ID, 'order' => 'ASC' ) );
-if ( count($comments) <= 0 ) echo 'No entries yet. Be the first to sign the Guestbook';
+if ( count($comments) <= 0 ) echo __('No entries yet. Be the first to sign the Guestbook', 'rizzi-guestbook');
+$edit_name = __('Edit', 'rizzi-guestbook');
 ?>
 
 <!-- This file should primarily consist of HTML with a little bit of PHP. -->
@@ -28,7 +29,7 @@ if ( count($comments) <= 0 ) echo 'No entries yet. Be the first to sign the Gues
           </a>
         </span>
         <span class="edit">
-          <?php echo edit_comment_link('Edit') ?>
+          <?php echo edit_comment_link($edit_name) ?>
         </span>
       </div>
     <?php } else { ?>
@@ -37,7 +38,7 @@ if ( count($comments) <= 0 ) echo 'No entries yet. Be the first to sign the Gues
           <?php echo $comment->comment_author ?>
         </span>
         <span class="edit">
-          <?php echo edit_comment_link('Edit') ?>
+          <?php echo edit_comment_link($edit_name) ?>
         </span>
       </div>
     <?php } ?>
