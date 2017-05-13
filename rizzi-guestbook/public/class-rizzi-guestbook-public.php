@@ -31,6 +31,15 @@ class Rizzi_Guestbook_Public {
 	 */
 	private $plugin_name;
 
+  /**
+   * The options name to be used in this plugin
+   *
+   * @since  4.0.0
+   * @access private
+   * @var  string $option_name Option name of this plugin
+   */
+  private $option_name = 'rizzi_guestbook';
+
 	/**
 	 * The version of this plugin.
 	 *
@@ -100,6 +109,29 @@ class Rizzi_Guestbook_Public {
     wp_enqueue_script( 'google-recaptcha', 'https://www.google.com/recaptcha/api.js', false );
 
 	}
+
+  /**
+   * WordPress loaded
+   *
+   * @since    4.0.0
+   */
+  public function loaded() {
+    if (isset($_POST['g-recaptcha-response'])) {
+      $recaptcha_response = $_POST['g-recaptcha-response'];
+      $response = wp_remote_post( 'https://www.google.com/recaptcha/api/siteverify', array(
+        'method' => 'POST',
+        'body' => array(
+          'secret' => get_option( $this->option_name . '_recaptcha_private_key'),
+          'response' => $recaptcha_response
+        )
+      ));
+      $success = json_decode($response['body'])->success;
+      if (!$success) {
+        echo 'Failed to pass reCaptcha';
+        exit();
+      }
+    }
+  }
 
 	/**
 	 * Replace guestbook page contents with the guestbook.
