@@ -54,7 +54,7 @@ Create a guestbook using the built-in commenting capabilities of WordPress
 
 = 3.0.0 (2015-03-06) =
 * Complete New Design
-* Added Google's No Captcha reCaptcha
+* Added Google's reCaptcha
 * Added option to change page names
 * Added multiple date stamp formats
 * Fixed several bugs
